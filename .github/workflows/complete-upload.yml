@@ -1,0 +1,30 @@
+name: Complete project upload
+on:
+  workflow_dispatch:
+permissions:
+  contents: write
+jobs:
+  upload:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Fetch remaining project files
+        env:
+          SOURCE_BASE: https://8123-iyre86k70diq7wjot7b58.e2b.app
+        run: |
+          set -euo pipefail
+          mkdir -p src/app public/images
+          curl --fail --retry 3 "$SOURCE_BASE/src/app/globals.css" -o src/app/globals.css
+          curl --fail --retry 3 "$SOURCE_BASE/public/regen-atlas-assets.json" -o public/regen-atlas-assets.json
+          curl --fail --retry 3 "$SOURCE_BASE/public/images/forest-restoration.png" -o public/images/forest-restoration.png
+          curl --fail --retry 3 "$SOURCE_BASE/bun.lock" -o bun.lock
+          curl --fail --retry 3 "$SOURCE_BASE/package-lock.json" -o package-lock.json
+      - name: Commit remaining project files
+        run: |
+          set -euo pipefail
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add src/app/globals.css public/regen-atlas-assets.json public/images/forest-restoration.png bun.lock package-lock.json
+          git diff --cached --quiet && exit 0
+          git commit -m "Add remaining project assets and lockfiles"
+          git push origin main
