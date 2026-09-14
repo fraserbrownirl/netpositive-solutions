@@ -1,0 +1,38 @@
+name: Rebuild Net-Positive Solutions
+on:
+  workflow_dispatch:
+permissions:
+  contents: write
+jobs:
+  sync:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Fetch rebuilt site files
+        env:
+          SOURCE_BASE: https://8124-iyre86k70diq7wjot7b58.e2b.app
+        run: |
+          set -euo pipefail
+          mkdir -p src/app/thesis src/app/work/[slug] src/app/community src/app/about src/app/contact src/app/writing/[slug] src/components src/lib src/app
+          curl --fail "$SOURCE_BASE/src/app/page.tsx" -o src/app/page.tsx
+          curl --fail "$SOURCE_BASE/src/app/layout.tsx" -o src/app/layout.tsx
+          curl --fail "$SOURCE_BASE/src/app/globals.css" -o src/app/globals.css
+          curl --fail "$SOURCE_BASE/src/app/thesis/page.tsx" -o src/app/thesis/page.tsx
+          curl --fail "$SOURCE_BASE/src/app/work/page.tsx" -o src/app/work/page.tsx
+          curl --fail "$SOURCE_BASE/src/app/work/%5Bslug%5D/page.tsx" -o 'src/app/work/[slug]/page.tsx'
+          curl --fail "$SOURCE_BASE/src/app/community/page.tsx" -o src/app/community/page.tsx
+          curl --fail "$SOURCE_BASE/src/app/about/page.tsx" -o src/app/about/page.tsx
+          curl --fail "$SOURCE_BASE/src/app/contact/page.tsx" -o src/app/contact/page.tsx
+          curl --fail "$SOURCE_BASE/src/app/writing/page.tsx" -o src/app/writing/page.tsx
+          curl --fail "$SOURCE_BASE/src/app/writing/%5Bslug%5D/page.tsx" -o 'src/app/writing/[slug]/page.tsx'
+          curl --fail "$SOURCE_BASE/src/components/SiteHeader.tsx" -o src/components/SiteHeader.tsx
+          curl --fail "$SOURCE_BASE/src/lib/content.ts" -o src/lib/content.ts
+          curl --fail "$SOURCE_BASE/README.md" -o README.md
+      - name: Commit rebuilt site
+        run: |
+          set -euo pipefail
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add src README.md
+          git commit -m "Rebuild site as Net-Positive Solutions"
+          git push origin main
