@@ -1,6 +1,6 @@
-# The Commons Reforestation Atlas
+# Net-Positive Solutions
 
-A research-led Next.js briefing on financing global reforestation and wider restoration through commons-first tokenomics.
+The public site for Fraser Brown: conservation finance, from mechanism design to proof-of-benefit.
 
 ## Run locally
 
@@ -16,4 +16,12 @@ bun run lint
 bun run build
 ```
 
-The public site includes the main briefing and a searchable Regen Atlas snapshot at `/atlas`. Deployment configuration is included for Netlify and Vercel.
+## Routes
+
+- `/` — thesis-led home page
+- `/thesis` — restoration as a Proof-of-Benefit class
+- `/work` — annotated 2014–2018 archive
+- `/community`, `/writing`, `/about`, `/contact`
+- `/atlas` — searchable Regen Atlas snapshot
+
+Work documents are intentionally framed as working material. Confirm publication consent, redaction and approved PDFs before attaching source files publicly.
