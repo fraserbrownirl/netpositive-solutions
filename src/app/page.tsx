@@ -1,108 +1,22 @@
 import Image from "next/image";
 import Link from "next/link";
+import { Compass, Users, ScanLine, Bot, Globe2, Sprout } from "lucide-react";
 import { SiteFooter, SiteHeader } from "@/components/SiteHeader";
-import { institutionNames } from "@/lib/content";
-
-const foundation = [
-  {
-    href: "/work/layered-restoration-fund",
-    title: "Rwanda forest landscape restoration",
-    description: "Fund design, climate finance strategy and investment readiness.",
-  },
-  {
-    href: "/work/smallholder-monitoring",
-    title: "Vietnam rice verification",
-    description: "Sensors, farmer-owned data and independent verification for outcome-based finance.",
-  },
-  {
-    href: "/work/restoration-token-design",
-    title: "Restoration-linked monetary design",
-    description: "A 2018 working paper tying issuance and payouts to verified restoration outcomes.",
-  },
+const activities = [
+  {icon:Compass,title:"Explore",body:"Discover missions near you. Go somewhere new, identify trees and uncover the living world."},
+  {icon:Users,title:"Find your crew",body:"Bring friends, form teams, meet other explorers and take on regional challenges."},
+  {icon:ScanLine,title:"Earn your points",body:"Build a permanent record of verified contributions, unlock new missions and grow your reputation."},
+  {icon:Bot,title:"Build the future",body:"Put local AI, drones, sensors and autonomous machines to work for nature."},
 ];
-
-export default function Home() {
-  return (
-    <>
-      <SiteHeader />
-      <main>
-        <section className="mission-hero">
-          <Image src="/images/forest-restoration.png" alt="" fill priority sizes="100vw" />
-          <div className="mission-hero-content">
-            <p className="eyebrow">Net-Positive Solutions / Fraser Brown</p>
-            <h1>Make regeneration <em>economically self-propelling.</em></h1>
-            <p className="mission-intro">
-              A proposed environmental intelligence network that turns local field missions into verified evidence,
-              better restoration decisions and a basis for funding work that improves nature.
-            </p>
-            <div className="hero-actions">
-              <Link className="button button-amber" href="/network">Explore the network</Link>
-              <Link className="mission-link" href="/network#batumi">The Batumi pilot</Link>
-            </div>
-          </div>
-        </section>
-
-        <section className="section-wrap two-col">
-          <h2>Every mission helps decide <em>what comes next.</em></h2>
-          <div className="reading">
-            <p className="lead">Find a mission nearby. Identify a tree, check whether a planting survived, or record what lives in a place.</p>
-            <p>Verified observations fill gaps in the shared record. The network can use what it learns to suggest the next useful mission, from a walk with a phone to a survey that needs a specialist.</p>
-            <p>The measure of success is additional restoration. Better data helps identify opportunities. Funding, delivery and follow-up evidence determine whether nature improves.</p>
-            <Link className="text-link" href="/network#additionality">How to measure restoration outcomes</Link>
-          </div>
-        </section>
-
-        <section className="section-wrap two-col mission-pilot">
-          <div>
-            <p className="eyebrow">First experiment · proposed</p>
-            <h2>Start in Batumi.</h2>
-          </div>
-          <div className="reading">
-            <p className="lead">100 missions. 20 young participants.</p>
-            <p>Test whether a mobile map and guided fieldwork produce observations that independent reviewers can verify, and whether participants choose to return before financial rewards are available.</p>
-            <Link className="button" href="/network#batumi">Read the pilot plan</Link>
-          </div>
-        </section>
-
-        <section className="section-wrap mission-foundation">
-          <div className="two-col">
-            <h2>Built on a decade of <em>conservation finance.</em></h2>
-            <div className="reading">
-              <p>Fraser Brown was Director of Global Strategy at WeForest, Senior Advisor Green Finance at ICRAF, and a consultant to IUCN and CGIAR’s CCAFS programme. He designed financing mechanisms for the Bonn Challenge.</p>
-              <div className="hero-actions">
-                <Link className="button" href="/work">Explore the work archive</Link>
-                <Link className="text-link" href="/about">About Fraser Brown</Link>
-              </div>
-            </div>
-          </div>
-          <div className="latest-grid">
-            {foundation.map(({ href, title, description }) => (
-              <Link className="card" href={href} key={href}>
-                <h3>{title}</h3>
-                <p>{description}</p>
-                <span className="text-link">Read the case</span>
-              </Link>
-            ))}
-          </div>
-          <ul className="mission-institutions" aria-label="Organisations and initiatives in the work record">
-            {institutionNames.map((name) => <li key={name}>{name}</li>)}
-          </ul>
-        </section>
-
-        <section className="note-band">
-          <p>The Champion thesis explores how local institutions could turn restoration evidence into delivery and payments.</p>
-          <Link className="button" href="/thesis">Read the Champion thesis</Link>
-        </section>
-
-        <section className="section-wrap two-col">
-          <h2>Help shape the pilot.</h2>
-          <div className="reading">
-            <p>The proposal needs local youth and community organisations, ecologists, independent reviewers, restoration partners and builders who know how to make field tools work offline.</p>
-            <Link className="button button-amber" href="/contact">Contact Fraser</Link>
-          </div>
-        </section>
-      </main>
-      <SiteFooter />
-    </>
-  );
-}
+const cases=[["/work/layered-restoration-fund","Rwanda forest landscape restoration","Fund design and investment readiness."],["/work/smallholder-monitoring","Vietnam rice verification","Farmer-owned data and outcome-based finance."],["/work/restoration-token-design","Restoration-linked monetary design","A 2018 working paper on issuance and verified restoration."]];
+export default function Home(){return <><SiteHeader/><main>
+<section className="mission-hero movement-hero"><Image src="/images/forest-restoration.png" alt="" fill priority sizes="100vw"/><div className="mission-hero-content"><p className="eyebrow">Net-Positive Solutions · A global collective endeavour</p><h1>The planet is our <em>playing field.</em></h1><p className="mission-intro">A movement of people, AI agents and autonomous machines exploring, understanding and regenerating the living world.</p><div className="hero-actions"><Link className="button button-amber" href="/community">Join the movement</Link><Link className="mission-link" href="/network">Discover how it works</Link></div><p className="movement-status">In development · Founding contributors welcome</p></div></section>
+<section className="movement-proof"><span>Rooted in years of conservation finance and financial innovation</span><strong>IUCN · CGIAR · World Agroforestry · WeForest</strong><Link href="/about">Our origins ↗</Link></section>
+<section className="section-wrap"><p className="eyebrow">The experience</p><h2>Outside. Connected. <em>On a mission.</em></h2><div className="movement-grid">{activities.map(({icon:Icon,title,body},i)=><div className="movement-card" key={title}><Icon size={30} strokeWidth={1.5}/><span className="movement-index">0{i+1}</span><h3>{title}</h3><p>{body}</p></div>)}</div></section>
+<section className="section-wrap movement-dark two-col" id="points"><div><p className="eyebrow">Contribution points</p><h2>Every contribution <em>counts.</em></h2><p className="movement-copy">A tree observation, a drone survey, an improved AI model or an independent verification: useful work earns recognition. Accumulate points, not promises.</p><Link className="button button-amber" href="/network#points">Explore the points system</Link></div><div className="movement-profile"><p className="eyebrow">Illustrative contributor profile</p><div className="profile-head"><div><strong>Field explorer</strong><p>Level 7 · Surveyor</p></div><div><strong className="profile-score">2,840</strong><p>Contribution points</p></div></div>{[["Tree observations",850],["Biodiversity missions",420],["Drone surveys",950],["Independent checks",320],["Community contributions",300]].map(([label,score])=><div className="profile-row" key={label}><span>{label}</span><strong>{score}</strong><div className="profile-track"><div style={{width:`${Number(score)/950*100}%`}}/></div></div>)}<p className="profile-note">Concept preview · Points are not money or guaranteed future payment.</p></div></section>
+<section className="section-wrap two-col"><div><p className="eyebrow">Technology for the living world</p><h2>Human curiosity. <em>Machine intelligence.</em></h2></div><div className="reading"><p className="lead">One network, many kinds of contributors.</p><p>Our proposed architecture combines QVAC on-device AI, peer-to-peer coordination, satellite observations, mobile devices and drones. People supply evidence machines cannot yet reliably collect; better models help automate the next generation of missions.</p><div className="movement-tags">{["QVAC","Peer-to-peer","Earth observation","Mobile AI","Drones","Open science"].map(x=><span key={x}>{x}</span>)}</div><Link className="text-link" href="/network#architecture">Explore the technology</Link></div></section>
+<section className="section-wrap movement-pale two-col" id="finance"><div><p className="eyebrow">A different approach to finance</p><h2>Create value first. <em>Discover the economics.</em></h2></div><div className="reading"><p className="lead">Nature has value. Carbon has value. Environmental intelligence has value.</p><p>Years of working on innovative financial mechanisms for restoration have taught us how difficult it is to align funding, institutions and delivery before work can begin. So we are reversing the order.</p><p>Build the movement, accumulate verified contributions and explore how future climate finance, data value and new tokenomic mechanisms might recognise that work. We hope to summon new economic possibilities into being, not promise them in advance.</p><Link className="text-link" href="/network#finance">Read the financial innovation vision</Link></div></section>
+<section className="section-wrap two-col mission-pilot"><div><p className="eyebrow">First experiment · proposed</p><h2>Begin locally. <em>Think globally.</em></h2></div><div className="reading"><p className="lead">Batumi: 100 missions, 20 young participants.</p><p>Test the joy of exploration, repeat participation and the scientific usefulness of observations before introducing financial rewards. Then learn, improve and replicate.</p><Link className="button" href="/network#batumi">Explore the pilot</Link></div></section>
+<section className="section-wrap mission-foundation"><div className="two-col"><div><p className="eyebrow">An ambition years in the making</p><h2>From conservation finance <em>to collective action.</em></h2></div><div className="reading"><p>Between 2015 and 2019, Fraser Brown worked on innovative financial mechanisms across Africa and Asia, including assignments for IUCN, CGIAR and World Agroforestry and as Director of Global Strategy at WeForest.</p><p>The earlier work informs this initiative: a new way to tackle an enduring challenge, using technologies and coordination mechanisms that were not previously available.</p><Link className="text-link" href="/about">The history behind the movement</Link></div></div><div className="latest-grid">{cases.map(([href,title,body])=><Link className="card" href={href} key={href}><h3>{title}</h3><p>{body}</p><span className="text-link">Read the case</span></Link>)}</div></section>
+<section className="movement-dark section-wrap two-col"><div><Globe2 size={36} strokeWidth={1.4}/><h2>Something bigger <em>than any one of us.</em></h2></div><div className="reading"><p>Explorers, students, scientists, developers, drone builders and people who simply love the outdoors: help shape a new collective endeavour.</p><Link className="button button-amber" href="/contact">Become a founding contributor</Link></div></section>
+</main><SiteFooter/></>}
