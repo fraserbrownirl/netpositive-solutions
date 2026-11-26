@@ -1,17 +1,108 @@
+import Image from "next/image";
 import Link from "next/link";
-import { ArrowRight, BookOpen, Check, FileText } from "lucide-react";
 import { SiteFooter, SiteHeader } from "@/components/SiteHeader";
-import { institutionNames, writingItems } from "@/lib/content";
+import { institutionNames } from "@/lib/content";
+
+const foundation = [
+  {
+    href: "/work/layered-restoration-fund",
+    title: "Rwanda forest landscape restoration",
+    description: "Fund design, climate finance strategy and investment readiness.",
+  },
+  {
+    href: "/work/smallholder-monitoring",
+    title: "Vietnam rice verification",
+    description: "Sensors, farmer-owned data and independent verification for outcome-based finance.",
+  },
+  {
+    href: "/work/restoration-token-design",
+    title: "Restoration-linked monetary design",
+    description: "A 2018 working paper tying issuance and payouts to verified restoration outcomes.",
+  },
+];
 
 export default function Home() {
-  return <><SiteHeader /><main>
-    <section className="hero-new"><div><p className="eyebrow">Net-Positive Solutions / Fraser Brown</p><h1>Champions keep their country’s <em>restoration pledge.</em></h1></div><div className="hero-copy-new"><p className="intro">Around seventy countries have promised hectares to the Bonn Challenge. Almost none have the last mile to deliver them: the ledger, the landholder’s agent, the payment that arrives when the trees are still standing.</p><p className="intro">I spent a decade designing that last mile before the institution to run it existed. Now it does.</p><div className="hero-actions"><Link className="button button-amber" href="/thesis">Read the thesis <ArrowRight size={15} /></Link><Link className="text-link" href="/community">Help form the vertical</Link></div><p className="small">This is a proposal to Champions and their founding councils. It is not a token, a product, or a claim of endorsement by Intelligent Internet.</p></div></section>
-    <section className="proof-strip"><article className="proof-card"><span className="year">2015 / MECHANISMS</span><h3>Rwanda FLR finance</h3><p>Fund design, GCF strategy, a technology platform and an accelerator for investment readiness.</p></article><article className="proof-card"><span className="year">2016 / VERIFICATION</span><h3>Vietnam AWD</h3><p>Smart sensors and a blockchain model to make methane reductions verifiable and payable to smallholders.</p></article><article className="proof-card"><span className="year">2018 / CAPITAL</span><h3>The FLR-token</h3><p>A green paper for a currency whose issuance and payout were bound to proven restoration outcomes.</p></article></section>
-    <section className="section-wrap two-col"><div><p className="eyebrow">What a Champion is</p><h2>The institution for<br /><em>the last mile.</em></h2></div><div className="reading"><p className="lead">A Champion is a locally majority-owned public-benefit company formed through a Founding Council. It brings together local leadership, integration engineers, intelligent machines, an agent and wallet for every citizen, and the operating record of what is happening where.</p><p>Restoration is its first natural proof: a public-service vertical with treaty-level national commitments already made. The business can earn service revenue in year one while building the commons record that makes long-horizon benefit measurable.</p><p>Foundation Coin and Proof-of-Benefit remain the commons economy underneath. They are the second act, after the Champion can hold the record and answer when delivery fails.</p><Link className="text-link" href="/thesis">Read the full argument →</Link></div></section>
-    <div className="note-band"><p>“Financial return is fundamentally different to economic return.”</p><Link className="button" href="/work">Explore the archive</Link></div>
-    <section className="institution-strip">{institutionNames.map((name) => <span key={name}>{name}</span>)}</section>
-    <section className="section-wrap"><div className="two-col"><div><p className="eyebrow">The restoration vertical</p><h2>Three deliverables.<br /><em>One institution.</em></h2></div><div><div className="latest-grid"><Link className="card" href="/thesis"><span className="meta">draft · v0.2</span><h3>Anchor demand</h3><p>A template engagement for a national restoration authority: MRV, outcome contracts and the citizen land-agent.</p><span className="text-link">Read the thesis →</span></Link><Link className="card" href="/thesis#operating-record"><span className="meta">in progress</span><h3>The operating record</h3><p>An open restoration ledger schema and verifier, contributed to the commons so every Champion starts from it.</p><span className="text-link">See the design →</span></Link><Link className="card" href="/community"><span className="meta">draft</span><h3>A cross-Champion programme</h3><p>The Bonn Challenge as a shared programme: one standard, many jurisdictions and a practitioner network ready to staff it.</p><span className="text-link">Help form the vertical →</span></Link></div></div></div></section>
-    <section className="section-wrap" style={{paddingTop:0}}><div className="callout"><p className="eyebrow">A serious proposal needs receipts</p><h2>Read the documents behind the argument.</h2><p className="reading">The archive is a record of trying to solve one problem from different angles — funds, platforms, verification and incentives. It includes working drafts and honest limits.</p><Link className="button" href="/work"><FileText size={15} /> Open the work archive</Link></div></section>
-    <section className="section-wrap two-col" style={{background:"#202622",color:"#f1ede5"}}><div><p className="eyebrow" style={{color:"#e7a35f"}}>The invitation</p><h2>Who should get<br /><em>in touch?</em></h2></div><div className="reading" style={{color:"#c8cbc3"}}><p>Restoration implementers with measured outcomes. MRV technologists. People building on or near the Intelligent Internet stack. Funders interested in outcome-based nature finance.</p><Link className="button button-amber" href="/contact">Start a conversation <ArrowRight size={15} /></Link></div></section>
-  </main><SiteFooter /></>;
+  return (
+    <>
+      <SiteHeader />
+      <main>
+        <section className="mission-hero">
+          <Image src="/images/forest-restoration.png" alt="" fill priority sizes="100vw" />
+          <div className="mission-hero-content">
+            <p className="eyebrow">Net-Positive Solutions / Fraser Brown</p>
+            <h1>Make regeneration <em>economically self-propelling.</em></h1>
+            <p className="mission-intro">
+              A proposed environmental intelligence network that turns local field missions into verified evidence,
+              better restoration decisions and a basis for funding work that improves nature.
+            </p>
+            <div className="hero-actions">
+              <Link className="button button-amber" href="/network">Explore the network</Link>
+              <Link className="mission-link" href="/network#batumi">The Batumi pilot</Link>
+            </div>
+          </div>
+        </section>
+
+        <section className="section-wrap two-col">
+          <h2>Every mission helps decide <em>what comes next.</em></h2>
+          <div className="reading">
+            <p className="lead">Find a mission nearby. Identify a tree, check whether a planting survived, or record what lives in a place.</p>
+            <p>Verified observations fill gaps in the shared record. The network can use what it learns to suggest the next useful mission, from a walk with a phone to a survey that needs a specialist.</p>
+            <p>The measure of success is additional restoration. Better data helps identify opportunities. Funding, delivery and follow-up evidence determine whether nature improves.</p>
+            <Link className="text-link" href="/network#additionality">How to measure restoration outcomes</Link>
+          </div>
+        </section>
+
+        <section className="section-wrap two-col mission-pilot">
+          <div>
+            <p className="eyebrow">First experiment · proposed</p>
+            <h2>Start in Batumi.</h2>
+          </div>
+          <div className="reading">
+            <p className="lead">100 missions. 20 young participants.</p>
+            <p>Test whether a mobile map and guided fieldwork produce observations that independent reviewers can verify, and whether participants choose to return before financial rewards are available.</p>
+            <Link className="button" href="/network#batumi">Read the pilot plan</Link>
+          </div>
+        </section>
+
+        <section className="section-wrap mission-foundation">
+          <div className="two-col">
+            <h2>Built on a decade of <em>conservation finance.</em></h2>
+            <div className="reading">
+              <p>Fraser Brown was Director of Global Strategy at WeForest, Senior Advisor Green Finance at ICRAF, and a consultant to IUCN and CGIAR’s CCAFS programme. He designed financing mechanisms for the Bonn Challenge.</p>
+              <div className="hero-actions">
+                <Link className="button" href="/work">Explore the work archive</Link>
+                <Link className="text-link" href="/about">About Fraser Brown</Link>
+              </div>
+            </div>
+          </div>
+          <div className="latest-grid">
+            {foundation.map(({ href, title, description }) => (
+              <Link className="card" href={href} key={href}>
+                <h3>{title}</h3>
+                <p>{description}</p>
+                <span className="text-link">Read the case</span>
+              </Link>
+            ))}
+          </div>
+          <ul className="mission-institutions" aria-label="Organisations and initiatives in the work record">
+            {institutionNames.map((name) => <li key={name}>{name}</li>)}
+          </ul>
+        </section>
+
+        <section className="note-band">
+          <p>The Champion thesis explores how local institutions could turn restoration evidence into delivery and payments.</p>
+          <Link className="button" href="/thesis">Read the Champion thesis</Link>
+        </section>
+
+        <section className="section-wrap two-col">
+          <h2>Help shape the pilot.</h2>
+          <div className="reading">
+            <p>The proposal needs local youth and community organisations, ecologists, independent reviewers, restoration partners and builders who know how to make field tools work offline.</p>
+            <Link className="button button-amber" href="/contact">Contact Fraser</Link>
+          </div>
+        </section>
+      </main>
+      <SiteFooter />
+    </>
+  );
 }
