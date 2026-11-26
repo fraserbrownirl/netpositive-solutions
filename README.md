@@ -1,6 +1,6 @@
 # Net-Positive Solutions
 
-The public site for Fraser Brown: conservation finance, from mechanism design to proof-of-benefit.
+The public site for Fraser Brown: environmental missions, restoration finance and a conservation finance work archive.
 
 ## Run locally
 
@@ -18,8 +18,9 @@ bun run build
 
 ## Routes
 
-- `/` — thesis-led home page
-- `/thesis` — restoration as a Proof-of-Benefit class
+- `/` — environmental mission network and conservation finance track record
+- `/network` — mission protocol and proposed Batumi pilot
+- `/thesis` — Champion restoration thesis
 - `/work` — annotated 2014–2018 archive
 - `/community`, `/writing`, `/about`, `/contact`
 - `/atlas` — searchable Regen Atlas snapshot
