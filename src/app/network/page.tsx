@@ -1,86 +1,12 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { SiteFooter, SiteHeader } from "@/components/SiteHeader";
-
-export const metadata: Metadata = {
-  title: "The environmental mission network",
-  description: "A proposal to connect field missions, environmental intelligence and restoration finance, starting with a pilot in Batumi.",
-};
-
-const sections = [
-  ["missions", "The mission protocol"],
-  ["batumi", "The Batumi pilot"],
-  ["architecture", "A network that learns"],
-  ["additionality", "Measuring additional restoration"],
-  ["finance", "Funding and contribution"],
-];
-
-export default function Network() {
-  return (
-    <>
-      <SiteHeader />
-      <main>
-        <section className="page-intro">
-          <p className="eyebrow">Current proposal</p>
-          <h1>The environmental <em>mission network.</em></h1>
-          <p>
-            Make it enjoyable to explore nature and useful to record what you find. Use verified evidence
-            to guide the next field mission, identify opportunities for restoration and track what funding delivers.
-          </p>
-        </section>
-
-        <div className="article-layout">
-          <nav className="toc" aria-label="On this page">
-            <span>ON THIS PAGE</span>
-            {sections.map(([id, title]) => <Link href={`#${id}`} key={id}>{title}</Link>)}
-          </nav>
-
-          <article className="longform mission-article">
-            <h2 id="missions">The mission protocol</h2>
-            <p>On a Saturday morning, open a map, find a nearby mission and invite someone along. A phone can guide you through identifying a tree species, recording local biodiversity or checking the survival of a recent planting. A canopy or soil survey might go to a drone operator or a specialist.</p>
-            <p>Each mission specifies a question or action, the location and access conditions, the required capability, the evidence to collect and how to verify it. Accepted work records its provenance. Inconclusive results can trigger a follow-up mission.</p>
-
-            <h2 id="batumi">The first test in Batumi</h2>
-            <p>Start with a mobile map and a small mission protocol. The proposed pilot aims for <strong>100 missions and 20 young participants.</strong></p>
-            <ol>
-              <li>Co-design missions with local youth partners and ecologists. Choose accessible sites and agree on consent, group participation and what can appear publicly.</li>
-              <li>Give participants a map with nearby missions and a guided workflow that can capture observations offline.</li>
-              <li>Have independent reviewers check a sample for completeness, accuracy and usefulness.</li>
-              <li>Track voluntary return visits before introducing financial rewards. Publish collective progress on a live map using aggregated or approved locations.</li>
-            </ol>
-            <p>Use repeat participation, evidence quality and verification effort to decide whether to run a larger pilot.</p>
-
-            <h2 id="architecture">A network that learns from the field</h2>
-            <p>Start with simple rules to identify gaps, assign missions and check submissions. As accepted observations improve the shared record and its models, the network can propose better follow-up work. Over time, software agents could suggest what needs checking and route tasks to people, sensors or machines, with review for consequential decisions.</p>
-            <dl className="mission-inputs">
-              <div><dt>P vs NP project</dt><dd>Inspiration for decomposing complex work into smaller, verifiable tasks and distributing them according to capability.</dd></div>
-              <div><dt>QVAC and Holepunch</dt><dd>Candidate technologies for on-device analysis, offline workflows and resilient exchange. Maps, search and early training can use conventional services.</dd></div>
-              <div><dt>TreesAI / GUS</dt><dd>A reference for modelling what nature could be worth under different restoration scenarios.</dd></div>
-              <div><dt>Echo Labs</dt><dd>A reference for assessing ecosystem condition and shaping scientifically useful fieldwork.</dd></div>
-              <div><dt>Contribution-linked finance</dt><dd>A proposed way to connect verified work today to qualifying value created later.</dd></div>
-            </dl>
-            <p>These are design influences and candidates to evaluate during development.</p>
-
-            <h2 id="additionality">Measuring additional restoration</h2>
-            <ol>
-              <li><strong>Observation.</strong> Establish ecosystem condition and record what is already happening.</li>
-              <li><strong>Prediction.</strong> Estimate what could improve with an intervention and what would likely happen without it.</li>
-              <li><strong>Financing.</strong> Identify who can deliver the work, how much it costs and who might fund it under measurable terms.</li>
-              <li><strong>Regeneration.</strong> Monitor survival and ecological condition over time to assess improvement against the expected baseline.</li>
-            </ol>
-            <p>The <Link className="text-link" href="/thesis">Champion restoration thesis</Link> explores an institutional route for coordinating landholders, verifiers and funders around that work.</p>
-
-            <h2 id="finance">From verified contributions to future value</h2>
-            <p>A contribution ledger records accepted work, provenance and assessed value. Published allocation rules would determine how contributors share in qualifying proceeds. Rewards would become payable only when eligible funding or revenue actually comes in and the agreed conditions are met.</p>
-            <p>Regional and shared pools are one possible way to recognise observations that improve models used elsewhere. Attribution, funding rules and legal design remain open. The pilot tests participation and data quality before introducing this economic layer.</p>
-            <div className="hero-actions">
-              <Link className="button button-amber" href="/contact">Discuss the pilot</Link>
-              <Link className="text-link" href="/work">Explore the work behind it</Link>
-            </div>
-          </article>
-        </div>
-      </main>
-      <SiteFooter />
-    </>
-  );
-}
+export const metadata:Metadata={title:"The movement and mission network",description:"Explore environmental missions, contribution points, local AI, drones and the financial possibilities of collective action."};
+const sections=[["missions","The mission experience"],["points","Contribution points"],["architecture","Technology and science"],["batumi","The first experiment"],["additionality","Restoration outcomes"],["finance","Financial innovation"]];
+export default function Network(){return <><SiteHeader/><main><section className="page-intro"><p className="eyebrow">The movement · In development</p><h1>Millions of small missions. <em>One planetary ambition.</em></h1><p>A proposed global network where humans, AI agents and machines contribute to a better understanding of nature and its regeneration. The work can begin before the economics are resolved.</p></section><div className="article-layout"><nav className="toc" aria-label="On this page"><span>ON THIS PAGE</span>{sections.map(([id,title])=><Link href={`#${id}`} key={id}>{title}</Link>)}</nav><article className="longform mission-article">
+<h2 id="missions">The mission experience</h2><p>Open a map. Discover a mission near you. Invite a friend, join a crew or explore on your own. A phone guides you through the work, from identifying trees and recording biodiversity to checking whether recently planted trees are surviving.</p><p>Each mission specifies its objective, location, access conditions, required capability, evidence and verification method. The same protocol can assign a drone operator an aerial survey or an AI agent a data-analysis task. Accepted work becomes part of a shared, attributable record; uncertain results can generate follow-up missions.</p><p>Build experience, collect achievements, discover new species, compete in friendly regional challenges and unlock more demanding missions. Community and mastery are as important as the leaderboard.</p>
+<h2 id="points">Contribution points, not promises</h2><p>Points recognise useful, verified contributions: observations, independent checks, code, model improvements, community work and restoration activities. Award points for quality and usefulness rather than raw volume. Preserve the evidence and attribution so significant contributions can receive additional recognition later.</p><p>Proposed records distinguish accepted work, rejected work and technical faults. A failed device or connectivity problem should not be treated as fraud. Independent checks, calibration and random audits help protect the integrity of the record.</p><p>Points support progression, reputation and collective achievement. They do not have an assigned monetary value, guarantee payment or confer a defined financial entitlement. We hope future economic mechanisms can recognise the work, but participation should be rewarding even if those mechanisms never emerge.</p>
+<h2 id="architecture">An intelligence network for nature</h2><p>Start with a simple mission coordinator and mobile experience, then progressively distribute and automate the work. Humans collect the evidence that remote sensing cannot yet reliably provide. Their observations improve the models that guide future human and machine missions.</p><dl className="mission-inputs"><div><dt>QVAC</dt><dd>Candidate technology for local AI, guided field capture and offline inference on compatible devices.</dd></div><div><dt>Holepunch and peer-to-peer</dt><dd>Explore resilient exchange and distributed coordination without insisting every component be decentralised.</dd></div><div><dt>Satellites and drones</dt><dd>Use remote sensing to identify knowledge gaps, map change and automate increasingly complex surveys.</dd></div><div><dt>Open science</dt><dd>Learn from ecosystem research, including TreesAI/GUS and Echo Labs; use reproducible methods, versioned evidence and independent validation.</dd></div><div><dt>Distributed task solving</dt><dd>Learn from P vs NP-style task decomposition, leases, accepted contributions and retrospective recognition.</dd></div></dl><p>These are design influences and candidate technologies, not claims of partnerships, integrations or deployed capabilities. Keep training and independent validation data separate; assess scientific accuracy rather than assuming consensus proves a measurement correct.</p>
+<h2 id="batumi">The first experiment in Batumi</h2><p>A proposed pilot: <strong>100 missions and 20 young participants.</strong> Test whether a delightful mobile experience creates repeat participation and scientifically useful work before financial rewards exist.</p><ol><li>Define safe, accessible missions with ecological guidance and appropriate consent.</li><li>Test guided capture, offline workflows, crews and points.</li><li>Independently review a sample of observations and preserve provenance.</li><li>Publish collective progress using approved or aggregated locations.</li></ol><p>Evaluate repeat participation, evidence quality and verification effort before expanding. Participation by minors requires appropriate safeguards and is not a speculative financial opportunity.</p>
+<h2 id="additionality">From observation to regeneration</h2><p>Knowing what exists is not the same as improving it. The longer-term mission graph should encompass restoration opportunities, interventions and follow-up checks, subject to land rights, ecological suitability and local consent. Measure survival and ecosystem condition against a credible baseline; do not treat existing carbon stocks as newly created carbon or automatically financeable credits.</p>
+<h2 id="finance">Create value first. Discover the economics.</h2><p>Carbon, environmental data and healthy ecosystems can have real value. Years of experience designing innovative financial mechanisms for restoration have shown how difficult it can be to align institutions, capital and delivery before meaningful activity starts. We want to reverse that sequence.</p><p>Accumulate people, useful technology, verified observations and contribution points. Explore how climate finance, commercial data use, restoration funding and tokenomic innovation might eventually recognise those contributions. Regional and global pools, retrospective attribution and milestone-based rewards are possibilities, not settled terms.</p><p>Operational funding for infrastructure is distinct from any future contributor rewards or restoration finance. No token sale, redemption promise or guaranteed funding is proposed here.</p><p>The <Link className="text-link" href="/thesis">Champion thesis</Link> remains one possible institutional pathway, not a prerequisite for the movement. The <Link className="text-link" href="/work">work archive</Link> records the financial and scientific questions that led here.</p><div className="hero-actions"><Link className="button button-amber" href="/community">Join the founding community</Link><Link className="text-link" href="/contact">Help build it</Link></div></article></div></main><SiteFooter/></>}
